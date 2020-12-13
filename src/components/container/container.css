@@ -1,0 +1,74 @@
+.over-body{
+  display: flex;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background-color: rgb(11 27 83);
+  color: rgb(211, 209, 209);
+}
+
+.sidebar-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* divider */
+.MuiDivider-root{
+  background-color:unset !important;
+}
+.sidebar-item-content {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.static > ul.MuiList-root > div:nth-child(1){
+  background-color: rgb(24, 158, 255);
+  color: white;
+}
+.sidebar-item-icon {
+  margin-right: 6px;
+}
+
+.sidebar-item-text {
+  width: 100%;
+}
+
+.sidebar-item-expand-arrow {
+  font-size: 1.2rem !important;
+}
+
+.sidebar-item-expand-arrow-expanded {
+  color: #09bb12;
+  font-weight: bold;
+}
+.screen-work{
+  width: calc(100vw - 260px);
+  margin-left: 290px;
+  margin-right:100px;
+  
+box-shadow: 0 0 7px rgba(0,0,0,.5);  background-color: white;
+}
+.modal-backdrop{
+  background-color:rgba(0, 0, 0, 0.31) !important;
+}
+.component_child{
+  padding: 10px;
+}
