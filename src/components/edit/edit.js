@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import * as Yup from 'yup';
 import "bootstrap/dist/css/bootstrap.min.css";
 import AuthService from "../../services/auth.service";
@@ -13,7 +15,9 @@ export default class Edit extends Component {
     this.state = {
       images: '',
       nganh_hang: 'điện thoại - máy tính bảng',
-      idItem: this.props.match.params.idItem
+      idItem: this.props.match.params.idItem,
+      mo_ta: ''
+
     }
     this.danhSachNganhHang = {
       'Điện thoại - máy tính bảng': 'Điện thoại - máy tính bảng',
@@ -64,6 +68,8 @@ export default class Edit extends Component {
           formData.append('nganhHang', this.state.nganh_hang);
           formData.append('gia', fields.gia);
           formData.append('soLuong', fields.so_luong);
+          formData.append('moTa', this.state.mo_ta);
+
 
           for (const key of Object.keys(this.state.images)) {
             console.log(this.state.images[key])
@@ -107,6 +113,18 @@ export default class Edit extends Component {
             <div className="form-group">
               <label htmlFor="hinh_anh">Hình ảnh</label>
               <input name="hinh_anh" type="file" accept=".jpg,.png,.jfif" className='form-control' required multiple onChange={this.onChangeFile} />
+            </div>
+            <div style={{ paddingBottom: '15px' }}>
+              <label>Mô tả</label>
+              <CKEditor
+                editor={ClassicEditor}
+                onChange={(event, editor) => {
+                  const data = editor.getData();
+                  this.setState({ mo_ta: data })
+                  console.log(this.state.mo_ta);
+                }}
+              />
+
             </div>
             <div className="form-group">
               <button type="submit" className="btn btn-primary mr-2">Cập nhật</button>
